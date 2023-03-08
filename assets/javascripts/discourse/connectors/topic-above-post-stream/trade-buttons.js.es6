@@ -1,11 +1,9 @@
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import Topic from "discourse/models/topic";
 import { ajax } from "discourse/lib/ajax";
-import Controller from "@ember/controller";
-import I18n from "I18n";
 import { inject as service } from "@ember/service";
 
-export default Controller.extend({
+export default {
   dialog: service(),
   
   actions: {
@@ -13,9 +11,8 @@ export default Controller.extend({
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_sold_confirm"
-        ),
-        didConfirm: (result) => {
-          return result
+        ), result => {
+          if (result) {
             ajax("/topic/sold", {
               type: "PUT",
               data: {
@@ -28,22 +25,20 @@ export default Controller.extend({
               topic.set("archived", result.topic.archived);
             }).catch(() => {
               this.dialog.alert({
-                message: I18n.t(
-                  "topic_trading.error_while_marked_as_sold"
-                ),
+                message: I18n.t("topic_trading.error_while_marked_as_sold"),
               });
             });
-        },
+          }
+        };
       });
     },
-    
+  
     clickPurchasedButton(topic) {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_purchased_confirm"
-        ),
-        didConfirm: (result) => {
-          return result
+        ), result => {
+          if (result) {
             ajax("/topic/purchased", {
               type: "PUT",
               data: {
@@ -56,22 +51,20 @@ export default Controller.extend({
               topic.set("archived", result.topic.archived);
             }).catch(() => {
               this.dialog.alert({
-                message: I18n.t(
-                  "topic_trading.error_while_marked_as_purchased"
-                ),
-              });             
+                message: I18n.t("topic_trading.error_while_marked_as_purchased"),
+              });
             });
-        },
+          }
+        };
       });
     },
-    
-     clickExchangedButton(topic) {
+      
+    clickExchangedButton(topic) {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_exchanged_confirm"
-        ),
-        didConfirm: (result) => {
-          return result
+        ), result => {
+          if (result) {
             ajax("/topic/exchanged", {
               type: "PUT",
               data: {
@@ -84,22 +77,20 @@ export default Controller.extend({
               topic.set("archived", result.topic.archived);
             }).catch(() => {
               this.dialog.alert({
-                message: I18n.t(
-                  "topic_trading.error_while_marked_as_exchanged"
-                ),
-              });              
+                message: I18n.t("topic_trading.error_while_marked_as_exchanged"),
+              });
             });
-        },
+          }
+        };
       });
     },
-    
+      
     clickCancelledButton(topic) {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_cancelled_confirm"
-        ),
-        didConfirm: (result) => {
-          return result
+        ), result => {
+          if (result) {
             ajax("/topic/cancelled", {
               type: "PUT",
               data: {
@@ -112,14 +103,13 @@ export default Controller.extend({
               topic.set("archived", result.topic.archived);
             }).catch(() => {
               this.dialog.alert({
-                message: I18n.t(
-                  "topic_trading.error_while_marked_as_cancelled"
-                ),
-              });              
+                message: I18n.t("topic_trading.error_while_marked_as_cancelled"),
+              });
             });
-        },
+          }
+        };
       });
     }
     
   }
-});
+};
