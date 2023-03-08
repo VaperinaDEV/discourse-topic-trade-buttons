@@ -11,7 +11,8 @@ export default {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_sold_confirm"
-        ), result => {
+        ),
+        result => {
           if (result) {
             ajax("/topic/sold", {
               type: "PUT",
@@ -29,7 +30,7 @@ export default {
               });
             });
           }
-        };
+        },
       });
     },
   
@@ -37,7 +38,8 @@ export default {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_purchased_confirm"
-        ), result => {
+        ),
+        result => {
           if (result) {
             ajax("/topic/purchased", {
               type: "PUT",
@@ -55,7 +57,7 @@ export default {
               });
             });
           }
-        };
+        },
       });
     },
       
@@ -63,7 +65,8 @@ export default {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_exchanged_confirm"
-        ), result => {
+        ),
+        result => {
           if (result) {
             ajax("/topic/exchanged", {
               type: "PUT",
@@ -81,7 +84,7 @@ export default {
               });
             });
           }
-        };
+        },
       });
     },
       
@@ -89,7 +92,8 @@ export default {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_cancelled_confirm"
-        ), result => {
+        ),
+        result => {
           if (result) {
             ajax("/topic/cancelled", {
               type: "PUT",
@@ -107,7 +111,7 @@ export default {
               });
             });
           }
-        };
+        },
       });
     }
     
