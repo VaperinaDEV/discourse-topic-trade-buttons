@@ -1,9 +1,10 @@
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import Topic from "discourse/models/topic";
 import { ajax } from "discourse/lib/ajax";
+import { inject as service } from "@ember/service";
 
 export default {
-  services: ["dialog"],
+  dialog: service(),
   
   actions: {
     clickSoldButton(topic) {
