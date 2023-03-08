@@ -1,10 +1,11 @@
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import Topic from "discourse/models/topic";
 import { ajax } from "discourse/lib/ajax";
+import Controller from "@ember/controller";
 import I18n from "I18n";
 import { inject as service } from "@ember/service";
 
-export default {
+export default Controller.extend({
   dialog: service(),
   
   actions: {
@@ -117,4 +118,4 @@ export default {
     }
     
   }
-};
+});
