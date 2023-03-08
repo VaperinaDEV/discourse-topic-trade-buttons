@@ -55,7 +55,7 @@ export default {
               this.dialog.alert({
                 message: I18n.t(
                   "topic_trading.error_while_marked_as_purchased"
-                );
+                ),
               });             
             });
         },
@@ -83,7 +83,7 @@ export default {
               this.dialog.alert({
                 message: I18n.t(
                   "topic_trading.error_while_marked_as_exchanged"
-                );
+                ),
               });              
             });
         },
@@ -111,7 +111,7 @@ export default {
               this.dialog.alert({
                 message: I18n.t(
                   "topic_trading.error_while_marked_as_cancelled"
-                );
+                ),
               });              
             });
         },
