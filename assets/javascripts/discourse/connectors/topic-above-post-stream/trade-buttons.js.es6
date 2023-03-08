@@ -27,10 +27,10 @@ export default {
               this.dialog.alert({
                 message: I18n.t(
                   "topic_trading.error_while_marked_as_sold"
-                ));
+                ),
               });
             });
-         },
+        },
       });
     },
     
@@ -55,10 +55,10 @@ export default {
               this.dialog.alert({
                 message: I18n.t(
                   "topic_trading.error_while_marked_as_purchased"
-                ));
+                );
               });             
             });
-         },
+        },
       });
     },
     
@@ -83,14 +83,14 @@ export default {
               this.dialog.alert({
                 message: I18n.t(
                   "topic_trading.error_while_marked_as_exchanged"
-                ));
+                );
               });              
             });
-         },
+        },
       });
     },
     
-     clickCancelledButton(topic) {
+    clickCancelledButton(topic) {
       return this.dialog.yesNoConfirm({
         message: I18n.t(
           "topic_trading.mark_as_cancelled_confirm"
@@ -111,10 +111,10 @@ export default {
               this.dialog.alert({
                 message: I18n.t(
                   "topic_trading.error_while_marked_as_cancelled"
-                ));
+                );
               });              
             });
-         },
+        },
       });
     }
     
