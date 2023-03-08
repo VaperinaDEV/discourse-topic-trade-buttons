@@ -14,24 +14,25 @@ export default Controller.extend({
         message: I18n.t(
           "topic_trading.mark_as_sold_confirm"
         ),
-        didConfirm: () => {
-          ajax("/topic/sold", {
-            type: "PUT",
-            data: {
-              topic_id: topic.id
-            }
-          }).then(() => {
-            topic.set("custom_fields.sold_at", result.topic.sold_at);
-            topic.set("title", result.topic.title);
-            topic.set("fancy_title", result.topic.fancy_title);
-            topic.set("archived", result.topic.archived);
-          }).catch(() => {
-            this.dialog.alert({
-              message: I18n.t(
-                "topic_trading.error_while_marked_as_sold"
-              ),
+        didConfirm: (result) => {
+          return result
+            ajax("/topic/sold", {
+              type: "PUT",
+              data: {
+                topic_id: topic.id
+              }
+            }).then((result) => {
+              topic.set("custom_fields.sold_at", result.topic.sold_at);
+              topic.set("title", result.topic.title);
+              topic.set("fancy_title", result.topic.fancy_title);
+              topic.set("archived", result.topic.archived);
+            }).catch(() => {
+              this.dialog.alert({
+                message: I18n.t(
+                  "topic_trading.error_while_marked_as_sold"
+                ),
+              });
             });
-          });
         },
       });
     },
@@ -41,24 +42,25 @@ export default Controller.extend({
         message: I18n.t(
           "topic_trading.mark_as_purchased_confirm"
         ),
-        didConfirm: () => {
-          ajax("/topic/purchased", {
-            type: "PUT",
-            data: {
-              topic_id: topic.id
-            }
-          }).then(() => {
-            topic.set("custom_fields.purchased_at", result.topic.purchased_at);
-            topic.set("title", result.topic.title);
-            topic.set("fancy_title", result.topic.fancy_title);
-            topic.set("archived", result.topic.archived);
-          }).catch(() => {
-            this.dialog.alert({
-              message: I18n.t(
-                "topic_trading.error_while_marked_as_purchased"
-              ),
-            });             
-          });
+        didConfirm: (result) => {
+          return result
+            ajax("/topic/purchased", {
+              type: "PUT",
+              data: {
+                topic_id: topic.id
+              }
+            }).then((result) => {
+              topic.set("custom_fields.purchased_at", result.topic.purchased_at);
+              topic.set("title", result.topic.title);
+              topic.set("fancy_title", result.topic.fancy_title);
+              topic.set("archived", result.topic.archived);
+            }).catch(() => {
+              this.dialog.alert({
+                message: I18n.t(
+                  "topic_trading.error_while_marked_as_purchased"
+                ),
+              });             
+            });
         },
       });
     },
@@ -68,24 +70,25 @@ export default Controller.extend({
         message: I18n.t(
           "topic_trading.mark_as_exchanged_confirm"
         ),
-        didConfirm: () => {
-          ajax("/topic/exchanged", {
-            type: "PUT",
-            data: {
-              topic_id: topic.id
-            }
-          }).then(() => {
-            topic.set("custom_fields.exchanged_at", result.topic.exchanged_at);
-            topic.set("title", result.topic.title);
-            topic.set("fancy_title", result.topic.fancy_title);
-            topic.set("archived", result.topic.archived);
-          }).catch(() => {
-            this.dialog.alert({
-              message: I18n.t(
-                "topic_trading.error_while_marked_as_exchanged"
-              ),
-            });              
-          });
+        didConfirm: (result) => {
+          return result
+            ajax("/topic/exchanged", {
+              type: "PUT",
+              data: {
+                topic_id: topic.id
+              }
+            }).then((result) => {
+              topic.set("custom_fields.exchanged_at", result.topic.exchanged_at);
+              topic.set("title", result.topic.title);
+              topic.set("fancy_title", result.topic.fancy_title);
+              topic.set("archived", result.topic.archived);
+            }).catch(() => {
+              this.dialog.alert({
+                message: I18n.t(
+                  "topic_trading.error_while_marked_as_exchanged"
+                ),
+              });              
+            });
         },
       });
     },
@@ -95,24 +98,25 @@ export default Controller.extend({
         message: I18n.t(
           "topic_trading.mark_as_cancelled_confirm"
         ),
-        didConfirm: () => {
-          ajax("/topic/cancelled", {
-            type: "PUT",
-            data: {
-              topic_id: topic.id
-            }
-          }).then(() => {
-            topic.set("custom_fields.cancelled_at", result.topic.cancelled_at);
-            topic.set("title", result.topic.title);
-            topic.set("fancy_title", result.topic.fancy_title);
-            topic.set("archived", result.topic.archived);
-          }).catch(() => {
-            this.dialog.alert({
-              message: I18n.t(
-                "topic_trading.error_while_marked_as_cancelled"
-              ),
-            });              
-          });
+        didConfirm: (result) => {
+          return result
+            ajax("/topic/cancelled", {
+              type: "PUT",
+              data: {
+                topic_id: topic.id
+              }
+            }).then((result) => {
+              topic.set("custom_fields.cancelled_at", result.topic.cancelled_at);
+              topic.set("title", result.topic.title);
+              topic.set("fancy_title", result.topic.fancy_title);
+              topic.set("archived", result.topic.archived);
+            }).catch(() => {
+              this.dialog.alert({
+                message: I18n.t(
+                  "topic_trading.error_while_marked_as_cancelled"
+                ),
+              });              
+            });
         },
       });
     }
