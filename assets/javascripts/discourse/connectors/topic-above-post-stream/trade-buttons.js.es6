@@ -8,22 +8,25 @@ export default {
   
   actions: {
     clickSoldButton(topic) {
-      return this.dialog.confirm(I18n.t('topic_trading.mark_as_sold_confirm'), I18n.t('no_value'), I18n.t('yes_value'), result => {
-        if (result) {
-          ajax("/topic/sold", {
-            type: "PUT",
-            data: {
-              topic_id: topic.id
-            }
-          }).then((result) => {
-            topic.set('custom_fields.sold_at', result.topic.sold_at);
-            topic.set('title', result.topic.title);
-            topic.set('fancy_title', result.topic.fancy_title);
-            topic.set('archived', result.topic.archived);
-          }).catch(() => {
-            this.dialog.alert(I18n.t('topic_trading.error_while_marked_as_sold'));
-          });
-        }
+      return this.dialog.yesNoConfirm({
+        message: I18n.t('topic_trading.mark_as_sold_confirm'), 
+        result => {
+          if (result) {
+            ajax("/topic/sold", {
+              type: "PUT",
+              data: {
+                topic_id: topic.id
+              }
+            }).then((result) => {
+              topic.set('custom_fields.sold_at', result.topic.sold_at);
+              topic.set('title', result.topic.title);
+              topic.set('fancy_title', result.topic.fancy_title);
+              topic.set('archived', result.topic.archived);
+            }).catch(() => {
+              this.dialog.alert(I18n.t('topic_trading.error_while_marked_as_sold'));
+            });
+          }
+        },
       });
     },
 
