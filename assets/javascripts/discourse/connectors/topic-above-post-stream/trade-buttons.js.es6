@@ -1,11 +1,14 @@
 import { popupAjaxError } from 'discourse/lib/ajax-error';
 import Topic from 'discourse/models/topic';
 import { ajax } from 'discourse/lib/ajax';
+import { inject as service } from "@ember/service";
 
 export default {
+  dialog: service(),
+  
   actions: {
     clickSoldButton(topic) {
-      return bootbox.confirm(I18n.t('topic_trading.mark_as_sold_confirm'), I18n.t('no_value'), I18n.t('yes_value'), result => {
+      return this.dialog.confirm(I18n.t('topic_trading.mark_as_sold_confirm'), I18n.t('no_value'), I18n.t('yes_value'), result => {
         if (result) {
           ajax("/topic/sold", {
             type: "PUT",
@@ -18,7 +21,7 @@ export default {
             topic.set('fancy_title', result.topic.fancy_title);
             topic.set('archived', result.topic.archived);
           }).catch(() => {
-            bootbox.alert(I18n.t('topic_trading.error_while_marked_as_sold'));
+            this.dialog.alert(I18n.t('topic_trading.error_while_marked_as_sold'));
           });
         }
       });
