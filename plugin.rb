@@ -12,19 +12,19 @@ after_initialize do
   if SiteSetting.topic_trade_buttons_enabled then
 
     add_to_serializer(:topic_view, :category_enable_sold_button, false) {
-      object.topic.category.custom_fields['enable_sold_button'] if object.topic.category
+      object.topic.category.custom_fields["enable_sold_button"] if object.topic.category
     }
 
     add_to_serializer(:topic_view, :category_enable_purchased_button, false) {
-      object.topic.category.custom_fields['enable_purchased_button'] if object.topic.category
+      object.topic.category.custom_fields["enable_purchased_button"] if object.topic.category
     }
 
     add_to_serializer(:topic_view, :category_enable_exchanged_button, false) {
-      object.topic.category.custom_fields['enable_exchanged_button'] if object.topic.category
+      object.topic.category.custom_fields["enable_exchanged_button"] if object.topic.category
     }
 
     add_to_serializer(:topic_view, :category_enable_cancelled_button, false) {
-      object.topic.category.custom_fields['enable_cancelled_button'] if object.topic.category
+      object.topic.category.custom_fields["enable_cancelled_button"] if object.topic.category
     }
 
     add_to_serializer(:topic_view, :custom_fields, false) {
@@ -44,19 +44,19 @@ after_initialize do
     class << self
 
       def sold(topic_id, user)
-        trade('sold', topic_id, user)
+        trade("sold", topic_id, user)
       end
 
       def purchased(topic_id, user)
-        trade('purchased', topic_id, user)
+        trade("purchased", topic_id, user)
       end
 
       def exchanged(topic_id, user)
-        trade('exchanged', topic_id, user)
+        trade("exchanged", topic_id, user)
       end
 
       def cancelled(topic_id, user)
-        trade('cancelled', topic_id, user)
+        trade("cancelled", topic_id, user)
       end
 
       def trade(transaction, topic_id, user)
