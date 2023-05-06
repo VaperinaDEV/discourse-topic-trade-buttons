@@ -8,7 +8,7 @@ export default {
   
   actions: {
     clickSoldButton(topic) {
-      return this.dialog.yesNoConfirm({
+      return this.dialog.yesNoConfirm(
         message: I18n.t('topic_trading.mark_as_sold_confirm'), 
         result => {
           if (result) {
@@ -27,7 +27,7 @@ export default {
             });
           }
         }
-      });
+      );
     },
 
     clickPurchasedButton(topic) {
