@@ -22,7 +22,7 @@ export default {
             topic.set("fancy_title", result.topic.fancy_title);
             topic.set("archived", result.topic.archived);
           }).catch(() => {
-            this.dialog.alert(I18n.t("topic_trading.error_while_marked_as_sold"));
+            dialog.alert(I18n.t("topic_trading.error_while_marked_as_sold"));
           });
         },
       });
@@ -44,7 +44,7 @@ export default {
             topic.set("fancy_title", result.topic.fancy_title);
             topic.set("archived", result.topic.archived);
           }).catch(() => {
-            this.dialog.alert(I18n.t("topic_trading.error_while_marked_as_purchased"));
+            dialog.alert(I18n.t("topic_trading.error_while_marked_as_purchased"));
           });
         },
       });
@@ -66,7 +66,7 @@ export default {
             topic.set("fancy_title", result.topic.fancy_title);
             topic.set("archived", result.topic.archived);
           }).catch(() => {
-            this.dialog.alert(I18n.t("topic_trading.error_while_marked_as_exchanged"));
+            dialog.alert(I18n.t("topic_trading.error_while_marked_as_exchanged"));
           });
         },
       });
@@ -88,7 +88,7 @@ export default {
             topic.set("fancy_title", result.topic.fancy_title);
             topic.set("archived", result.topic.archived);
           }).catch(() => {
-            this.dialog.alert(I18n.t("topic_trading.error_while_marked_as_cancelled"));
+            dialog.alert(I18n.t("topic_trading.error_while_marked_as_cancelled"));
           });
         },
       });
