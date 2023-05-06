@@ -1,14 +1,13 @@
 import { popupAjaxError } from "discourse/lib/ajax-error";
 import Topic from "discourse/models/topic";
 import { ajax } from "discourse/lib/ajax";
-import { inject as service } from "@ember/service";
 
 export default {
-  dialog: service(),
   
   actions: {
     clickSoldButton(topic) {
-      return this.dialog.yesNoConfirm({
+      const dialog = getOwner(this).lookup("service:dialog");
+      dialog.yesNoConfirm({
         message: I18n.t("topic_trading.mark_as_sold_confirm"),
         didConfirm: () => {
           ajax("/topic/sold", {
@@ -29,7 +28,8 @@ export default {
     },
     
     clickPurchasedButton(topic) {
-      return this.dialog.yesNoConfirm({
+      const dialog = getOwner(this).lookup("service:dialog");
+      dialog.yesNoConfirm({
         message: I18n.t("topic_trading.mark_as_purchased_confirm"),
         didConfirm: () => {
           ajax("/topic/purchased", {
@@ -50,7 +50,8 @@ export default {
     },
 
     clickExchangedButton(topic) {
-      return this.dialog.yesNoConfirm({
+      const dialog = getOwner(this).lookup("service:dialog");
+      dialog.yesNoConfirm({
         message: I18n.t("topic_trading.mark_as_exchanged_confirm"),
         didConfirm: () => {
           ajax("/topic/exchanged", {
@@ -71,7 +72,8 @@ export default {
     },
 
     clickCancelledButton(topic) {
-      return this.dialog.yesNoConfirm({
+      const dialog = getOwner(this).lookup("service:dialog");
+      dialog.yesNoConfirm({
         message: I18n.t("topic_trading.mark_as_cancelled_confirm"),
         didConfirm: () => {
           ajax("/topic/cancelled", {
