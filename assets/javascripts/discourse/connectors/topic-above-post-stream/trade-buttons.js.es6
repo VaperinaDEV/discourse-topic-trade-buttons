@@ -26,7 +26,7 @@ export default {
               this.dialog.alert(I18n.t('topic_trading.error_while_marked_as_sold'));
             });
           }
-        },
+        }
       });
     },
 
