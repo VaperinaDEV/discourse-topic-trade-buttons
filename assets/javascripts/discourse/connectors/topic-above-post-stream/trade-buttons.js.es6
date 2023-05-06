@@ -2,7 +2,7 @@ import { popupAjaxError } from 'discourse/lib/ajax-error';
 import Topic from 'discourse/models/topic';
 import { ajax } from 'discourse/lib/ajax';
 
-export default {  
+export default {
   actions: {
     clickSoldButton(topic) {
       return bootbox.confirm(I18n.t('topic_trading.mark_as_sold_confirm'), I18n.t('no_value'), I18n.t('yes_value'), result => {
