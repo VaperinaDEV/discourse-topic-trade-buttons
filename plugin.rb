@@ -7,7 +7,7 @@
 
 enabled_site_setting :topic_trade_buttons_enabled
 
-PLUGIN_NAME ||= "discourse_topic_trade_buttons".freeze
+PLUGIN_NAME ||= "discourse-topic-trade-buttons".freeze
 
 after_initialize do
   add_to_serializer(:topic_view, :category_enable_sold_button, include_condition: -> { object.topic.category }) do
