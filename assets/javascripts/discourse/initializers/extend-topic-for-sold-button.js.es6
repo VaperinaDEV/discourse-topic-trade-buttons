@@ -6,10 +6,10 @@ function initializeWithApi(api) {
   const currentUser = api.getCurrentUser();
 
   Topic.reopen({
-    @computed("archived", "custom_fields.enable_sold_button")
+    @computed("archived")
     canTopicBeMarkedAsSold: function () {
       const enable_sold_button = this.category_enable_sold_button
-        ? this.category_enable_sold_button.toLowerCase() == "true"
+        ? this.category_enable_sold_button.toLowerCase() === "true"
         : false;
       return (
         !this.isPrivatemessage &&
@@ -21,10 +21,10 @@ function initializeWithApi(api) {
       );
     },
 
-    @computed("archived", "custom_fields.enable_purchased_button")
+    @computed("archived")
     canTopicBeMarkedAsPurchased: function () {
       const enable_purchased_button = this.category_enable_purchased_button
-        ? this.category_enable_purchased_button.toLowerCase() == "true"
+        ? this.category_enable_purchased_button.toLowerCase() === "true"
         : false;
       return (
         !this.isPrivatemessage &&
@@ -36,10 +36,10 @@ function initializeWithApi(api) {
       );
     },
 
-    @computed("archived", "custom_fields.enable_exchanged_button")
+    @computed("archived")
     canTopicBeMarkedAsExchanged: function () {
       const enable_exchanged_button = this.category_enable_exchanged_button
-        ? this.category_enable_exchanged_button.toLowerCase() == "true"
+        ? this.category_enable_exchanged_button.toLowerCase() === "true"
         : false;
       return (
         !this.isPrivatemessage &&
@@ -51,10 +51,10 @@ function initializeWithApi(api) {
       );
     },
 
-    @computed("archived", "custom_fields.enable_cancelled_button")
+    @computed("archived")
     canTopicBeMarkedAsCancelled: function () {
       const enable_cancelled_button = this.category_enable_cancelled_button
-        ? this.category_enable_cancelled_button.toLowerCase() == "true"
+        ? this.category_enable_cancelled_button.toLowerCase() === "true"
         : false;
       return (
         !this.isPrivatemessage &&
