@@ -2,6 +2,7 @@
 # about: Adds one or all buttons (Sold, Purchased, Exchanged) to designated categories
 # version: 0.0.1
 # authors: Janno Liivak
+# frozen_string_literal: true
 
 enabled_site_setting :topic_trade_buttons_enabled
 
