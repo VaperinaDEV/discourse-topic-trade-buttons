@@ -10,14 +10,6 @@ enabled_site_setting :topic_trade_buttons_enabled
 PLUGIN_NAME ||= "discourse-topic-trade-buttons".freeze
 
 after_initialize do
-  add_to_serializer(:basic_user, :custom_fields, false) do
-    if object.custom_fields == nil then
-      {}
-    else
-      object.custom_fields
-    end
-  end
-
   add_to_serializer(:topic_view, :category_enable_sold_button, include_condition: -> { object.topic.category }) do
     object.topic.category.custom_fields["enable_sold_button"]
   end
