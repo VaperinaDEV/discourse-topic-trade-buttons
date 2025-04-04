@@ -11,7 +11,11 @@ PLUGIN_NAME ||= "discourse-topic-trade-buttons".freeze
 
 after_initialize do
   add_to_serializer(:basic_user, :custom_fields, false) do
-    object.custom_fields || {}
+    if object.custom_fields == nil then
+      {}
+    else
+      object.custom_fields
+    end
   end
 
   add_to_serializer(:topic_view, :category_enable_sold_button, include_condition: -> { object.topic.category }) do
