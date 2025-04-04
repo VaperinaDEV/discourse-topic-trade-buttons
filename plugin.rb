@@ -9,7 +9,7 @@ enabled_site_setting :topic_trade_buttons_enabled
 
 PLUGIN_NAME ||= "discourse-topic-trade-buttons".freeze
 
-add_to_serializer(:basic_user, :user_field_13, false) do
+add_to_serializer(:user, :user_field_13, false) do
   object.user_field_13
 end
 
