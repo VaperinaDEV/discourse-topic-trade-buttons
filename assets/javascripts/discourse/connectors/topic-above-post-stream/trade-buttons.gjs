@@ -66,33 +66,35 @@ export default class TopicTradeButtons extends Component {
   }
 
   <template>
-    {{#if @model.canTopicBeMarkedAsSold}}
-      <DButton
-        class="btn btn-primary"
-        @label="topic_trading.sold"
-        @action={{this.clickSoldButton}}
-      />
-    {{/if}}
-    {{#if @model.canTopicBeMarkedAsPurchased}}
-      <DButton
-        class="btn btn-primary"
-        @label="topic_trading.purchased"
-        @action={{this.clickPurchasedButton}}
-      />
-    {{/if}}
-    {{#if @model.canTopicBeMarkedAsExchanged}}
-      <DButton
-        class="btn btn-primary"
-        @label="topic_trading.exchanged"
-        @action={{this.clickExchangedButton}}
-      />
-    {{/if}}
-    {{#if @model.canTopicBeMarkedAsCancelled}}
-      <DButton
-        class="btn btn-default"
-        @label="topic_trading.cancelled"
-        @action={{this.clickCancelledButton}}
-      />
-    {{/if}}
+    <div class="trade-buttons">
+      {{#if @model.canTopicBeMarkedAsSold}}
+        <DButton
+          class="btn btn-primary"
+          @label="topic_trading.sold"
+          @action={{this.clickSoldButton}}
+        />
+      {{/if}}
+      {{#if @model.canTopicBeMarkedAsPurchased}}
+        <DButton
+          class="btn btn-primary"
+          @label="topic_trading.purchased"
+          @action={{this.clickPurchasedButton}}
+        />
+      {{/if}}
+      {{#if @model.canTopicBeMarkedAsExchanged}}
+        <DButton
+          class="btn btn-primary"
+          @label="topic_trading.exchanged"
+          @action={{this.clickExchangedButton}}
+        />
+      {{/if}}
+      {{#if @model.canTopicBeMarkedAsCancelled}}
+        <DButton
+          class="btn btn-default"
+          @label="topic_trading.cancelled"
+          @action={{this.clickCancelledButton}}
+        />
+      {{/if}}
+    </div>
   </template>
 }
